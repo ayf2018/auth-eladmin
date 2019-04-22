@@ -1,13 +1,13 @@
 import {
   login,
   logout,
-  getMenu,
   getPermissions
 } from './api/user.js'
 
 import {
   getToken,
-  getUserInfo
+  getUserInfo,
+  getMenus
 } from './libs/util'
 
 import {
@@ -17,7 +17,7 @@ import {
 export {
   login,
   logout,
-  getMenu,
+  getMenus,
   getToken,
   getUserInfo,
   getPermissions,

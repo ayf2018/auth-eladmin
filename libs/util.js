@@ -39,3 +39,13 @@ export const getRoles = () => {
   if (roles) return JSON.parse(roles)
   else return false
 }
+
+export const setMenus = (menus) => {
+  sessionStorage.setItem('menus', JSON.stringify(menus))
+}
+
+export const getMenus = () => {
+  const menus = sessionStorage.getItem('menus')
+  if (menus) return JSON.parse(menus)
+  else return false
+}

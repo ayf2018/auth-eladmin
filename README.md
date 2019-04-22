@@ -29,7 +29,7 @@ login  | 登录 => 存储token 和用户信息 | username、password
 logout | 退出登录  | -
 getToken | 获取token | --
 getUserInfo | 获取用户信息 | -
-getMenu | 获取菜单 | -
+getMenus | 获取菜单 | -
 getPermissions | 获取用户权限 | -
 checkPermission| 检查用户是否有权限 | Array
 
@@ -55,7 +55,7 @@ html:
       login,
       logout,
       getUserInfo,
-      getMenu,
+      getMenus,
       getToken,
       getPermissions,
       checkPermission
@@ -65,4 +65,4 @@ html:
       username: 'admin',
       password: '123456'
     })
-    getMenu()
+    getMenus()

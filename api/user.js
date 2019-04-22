@@ -4,7 +4,8 @@ import {
   setToken,
   removeToken,
   setUserInfo,
-  setRoles
+  setRoles,
+  setMenus
 } from './../libs/util'
 import config from './../config'
 const { urls } = config
@@ -24,6 +25,9 @@ export const login = ({ username, password }) => {
     getPermissions().then(({ content }) => {
       setRoles(content)
     })
+    getMenu().then(({ content }) => {
+      setMenus(content)
+    })
   })
 }
 
@@ -31,6 +35,8 @@ export const logout = (token) => {
   return new Promise((resolve, reject) => {
     setToken('token', '')
     removeToken()
+    sessionStorage.removeItem('roles')
+    sessionStorage.removeItem('menus')
     resolve()
   })
 }
