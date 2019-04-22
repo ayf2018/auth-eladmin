@@ -1,0 +1,24 @@
+{
+  "name": "auth-eladmin",
+  "version": "1.0.10",
+  "description": "基于eladmin的权限npm库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayf2018/auth-eladmin.git"
+  },
+  "keywords": [
+    "eladmin",
+    "auth",
+    "admin"
+  ],
+  "author": "anyanfei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayf2018/auth-eladmin/issues"
+  },
+  "homepage": "https://github.com/ayf2018/auth-eladmin#readme"
+}

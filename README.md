@@ -1,19 +1,25 @@
-# 标题
+# auth-eladmin
 
-权限管理系统的 npm 库
+基于eladmin的权限管理系统的 npm 库
 
-### 文件目录简析
+### 目录简析
 
-    guankong-eladmin
-        Ajax
-            ajax.js ------------ ajax 的封装
+    auth-eladmin
         api
             user.js ------------ user 相关的 api （登录登出、获取菜单）
-        config
-            index.js ----------- 默认配置
         libs
             util.js  ----------- 工具函数部分（token的get和set, user的get和set）
-        index.js  -------------- export api
+        config.js -------------- 默认配置
+        ajax.js ---------------- ajax 的封装
+        export.js -------------- export 事件
+        index.js  -------------- 导出 module.exports
+        package.json ----------- auth-eladmin 包信息
+        README.md -------------- auth-eladmin 包的介绍
+
+### 依赖
+
+    js-cookie     操作cookie
+    jsoneditor    js-cookie 的依赖
 
 ### Event
 
@@ -24,11 +30,24 @@ logout | 退出登录  | -
 getToken | 获取token | --
 getUserInfo | 获取用户信息 | -
 getMenu | 获取菜单 | -
+getPermissions | 获取用户权限 | -
+checkPermission| 检查用户是否有权限 | Array
 
-### 依赖
+**组件中使用 checkPermission**
 
-    js-cookie     操作cookie
-    jsoneditor    js-cookie 的依赖
+script：
+
+    import {
+      checkPermission
+    } from './guankong-eladmin/index.js'
+
+    methods: {
+        checkPermission,
+    }
+
+html:
+
+    <Button v-if="checkPermission['ADMIN']"  type="primary" @click="checkLog">查看日志</Button>
 
 ### 使用
 
@@ -38,7 +57,8 @@ getMenu | 获取菜单 | -
       getUserInfo,
       getMenu,
       getToken,
-      getPermissions
+      getPermissions,
+      checkPermission
     } from './guankong-eladmin/index.js'
     
     login({

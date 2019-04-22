@@ -3,10 +3,9 @@ import axios from 'axios'
 
 function Ajax (opt) {
   if (opt.Authorization) {
-    opt = {
-      ...opt,
+    Object.assign(opt, {
       headers: {}
-    }
+    })
     opt.headers.Authorization = opt.Authorization
     delete opt.Authorization
   }
@@ -40,13 +39,13 @@ function Ajax (opt) {
 
   opt.url = process.env.NODE_ENV === 'production' ? ('http://' + location.host + opt.url) : opt.url
 
-  return axios({
-    ...opt,
+  Object.assign(opt, {
     validateStatus: function (status) {
       return status === 200
     },
     timeout: 10000
-  }).then(({data}) => {
+  })
+  return axios(opt).then(({data}) => {
     return Promise.resolve(data)
   }).catch(error => {
     console.log(error)
